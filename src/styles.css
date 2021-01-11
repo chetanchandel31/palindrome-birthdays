@@ -19,9 +19,13 @@ body{
   background-size: cover;
   min-height: 100%;
  
+  color: white;
+}
+
+.App{
   display: flex;
   flex-direction: column;
-  color: white;
+  min-height: 100vh;
 }
 
 .mainSection{
@@ -57,11 +61,12 @@ img {
 button {
   color: #05386b;
   font-weight: bold;
+  font-size: 0.9rem;
   border: solid 3px #05386b;
   margin: 0.3rem 0.3rem;
   background-color: #5bc595;
   margin-bottom: 2rem;
-  transition: 0.4s;
+  transition: 0.5s;
 }
 
 button:hover{
