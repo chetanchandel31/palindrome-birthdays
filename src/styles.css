@@ -1,4 +1,81 @@
-.App {
-  font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+
+*{
+  margin: 0;
+  font-family: 'Heebo', sans-serif;
   text-align: center;
+  outline: none;
+  /* padding: 0; */
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  background-color: #379683;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23379683'/%3E%3Cstop offset='1' stop-color='%235cdb95'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%238ee4af' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%238ee4af' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%238ee4af' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%238ee4af' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100%;
+ 
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.mainSection{
+  flex: 1 0 auto;
+}
+
+header h1{
+  color: white;
+  background-color: #05386b;
+  padding: 0.5rem 0;
+}
+
+.errMsg{
+  background-color: #f64c72;
+  padding: 5px;
+}
+
+.loadingMsg{
+  color: #05386b;
+}
+
+.inputDate{
+  border: solid 3px #05386b;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+img {
+  max-width: 50%;
+  border-radius: 1rem;
+}
+
+button {
+  color: #05386b;
+  font-weight: bold;
+  border: solid 3px #05386b;
+  margin: 0.3rem 0.3rem;
+  background-color: #5bc595;
+  margin-bottom: 2rem;
+  transition: 0.4s;
+}
+
+button:hover{
+  color: #5bc595;
+  background-color: #05386b;
+}
+
+button:active{
+  transform: translateY(5px);
+}
+
+footer{
+  margin-top: 2rem;
+  background-color: #05386b;
+  padding-top: 0.5rem;
+  flex-shrink: 0;
 }

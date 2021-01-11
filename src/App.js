@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 export default function App() {
-  const [dob, setDob] = React.useState(null);
+  const [dob, setDob] = React.useState('');
   //to store the "combo" in which user's date is palindrome
   const [palindromeDate, setPalindrome] = React.useState(null);
   //to store non palindrome date so that jsx doesnt get conditionally rendered everytime onChange is triggered
@@ -97,17 +97,43 @@ export default function App() {
 
   return (
     <div className="App">
-      {error? <p>choose a date first</p>: null}
-      <input type='date' onChange = {({target}) => setDob(target.value)}/>
-      <button onClick={clickHandler}>Find Out</button> 
+      <header>
+        <h1>Palindrome Birthdays</h1>
+      </header>
+
+      {error? <p className='errMsg'>choose a date first</p>: null}
       
+      <section className='mainSection'>
+        <input type='date'
+        className='inputDate'
+        onChange = {({target}) => setDob(target.value)}
+        value={dob}/>
+        <div>
+          <button onClick={clickHandler}>Find Out</button> 
+          <button onClick={()=>{
+            setDob('');
+            setPalindrome(null);
+          }}>Reset</button>
+        </div>
+      </section>
+
       <div>
-        {loading? <h1>Loading..</h1>: null}
+        {loading?
+        ( <div className = 'loadingMsg'>
+            <h3>please wait..</h3>
+            <img src='https://media1.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif?cid=ecf05e475793660e8c27c78d15dde327c86c89f6e1a5be8c&rid=giphy.gif' alt='loading..'/>
+         </div> ) :
+         null}
 
         {!palindromeDate || loading || error ? null :
         palindromeDate === 'notPalindrome'? renderNotPalindromeMessage():
         `${palindromeDate} is a palindrome date !`}  
-      </div>   
+      </div>
+
+      <footer>
+        <h3>about</h3>
+        this web app tells you whether you were born on a palindrome day or not
+      </footer>
     </div>
   );
 }
