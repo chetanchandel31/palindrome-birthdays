@@ -84,3 +84,7 @@ footer{
   padding-top: 0.5rem;
   flex-shrink: 0;
 }
+
+.invisible{
+  display: none;
+}

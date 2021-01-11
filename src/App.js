@@ -117,12 +117,10 @@ export default function App() {
         </div>
 
         <div>
-          {loading?
-          ( <div className = 'loadingMsg'>
-              <h3>please wait..</h3>
+          <div className = {loading?'loadingMessage':'invisible'}>
+              <h3>checking..</h3>
               <img src='https://media1.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif?cid=ecf05e475793660e8c27c78d15dde327c86c89f6e1a5be8c&rid=giphy.gif' alt='loading..'/>
-          </div> ) :
-          null}
+          </div>
 
           {!palindromeDate || loading || error ? null :
           palindromeDate === 'notPalindrome'? renderNotPalindromeMessage():
