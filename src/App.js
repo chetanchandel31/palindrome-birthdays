@@ -51,7 +51,7 @@ export default function App() {
         setNonPalindromeDob(dob);
       }
       setLoading(false);
-    }, 1500);
+    }, 1800);
 
   }
 
@@ -90,7 +90,7 @@ export default function App() {
     return (
       <>
         This date is not a palindrome date.<br/>
-        {`Nearest Palindrome date ${dayGap} on ${nearestDate}`}
+        {`Nearest Palindrome date ${dayGap} on ${nearestDate}.`}
       </>
     )
   }
@@ -98,17 +98,18 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h1>Palindrome Birthdays</h1>
+        <h2>Palindrome Birthdays</h2>
       </header>
 
       {error? <p className='errMsg'>choose a date first</p>: null}
       
       <section className='mainSection'>
-        <input type='date'
-        className='inputDate'
-        onChange = {({target}) => setDob(target.value)}
-        value={dob}/>
-        <div>
+        <div>  
+          <input type='date'
+          className='inputDate'
+          onChange = {({target}) => setDob(target.value)}
+          value={dob}/>
+          <br/>
           <button onClick={clickHandler}>Find Out</button> 
           <button onClick={()=>{
             setDob('');
