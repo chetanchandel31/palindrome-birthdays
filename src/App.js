@@ -18,16 +18,25 @@ export default function App() {
   }
 
   const checkDate = (date) => {
-    let dateArr = date.split(/[\s-/.]+/);
-    //dates inputed from onChange will have zero padding but dates inputed from date object won't. For the sake of uniformity we remove zero padding
+    let dateArr = date.split(/[\s-/.]+/), dateArrTwo = date.split(/[\s-/.]+/);
+    //dates without zero padding on DD and MM part
     if (dateArr[1].startsWith('0')) dateArr[1] = dateArr[1].slice(1);
     if (dateArr[2].startsWith('0')) dateArr[2] = dateArr[2].slice(1);
+    //dates with zero padding on DD and MM part
+    dateArrTwo[1] = dateArr[1].padStart(2, '0');
+    dateArrTwo[2] = dateArr[2].padStart(2, '0');
     //all combos except for ones with year in middle
     let dateCombos =[
+      //combos without zero padding
       [dateArr[0],dateArr[1],dateArr[2]],
       [dateArr[0],dateArr[2],dateArr[1]],
       [dateArr[1],dateArr[2],dateArr[0]],
       [dateArr[2],dateArr[1],dateArr[0]], 
+      //combos with zero padding
+      [dateArr[0],dateArrTwo[1],dateArrTwo[2]],
+      [dateArr[0],dateArrTwo[2],dateArrTwo[1]],
+      [dateArrTwo[1],dateArrTwo[2],dateArr[0]],
+      [dateArrTwo[2],dateArrTwo[1],dateArr[0]]
     ]
     for (let combo of dateCombos) {
       if( checkPalindrome(combo.join('')) ) {
